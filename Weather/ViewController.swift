@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     
     
     
-    let weather = Weather(temperature: 21, cityName: "London")
+    let weatherService: WeatherServiceProtocol = WeatherService()
     
     
     
@@ -26,12 +26,19 @@ class ViewController: UIViewController {
 
     }
     
+    
+    
+    
     @IBAction func weatherCheckButtom(_ sender: UIButton) {
-        let temperature = TemperatureLabel!
-        let location = LocationLabel!
-        temperature.text = "\(String(weather.temperature)) °C"
-        location.text = (String(weather.cityName))
-        print(searchTextField.text!)
+        Task{
+            let weather = await weatherService.correntLocationWeather()
+            let temperature = TemperatureLabel!
+            let location = LocationLabel!
+            temperature.text = "\(String(weather!.temperature)) °C"
+            location.text = (String(weather!.cityName))
+            print(searchTextField.text!)
+        }
+        
         
         
     }
@@ -39,3 +46,6 @@ class ViewController: UIViewController {
     
 }
 
+
+// поменять город (настроить город)
+// через словарь
