@@ -28,6 +28,23 @@ enum Conditions {
 }
 
 
+
+
+
+
+// test !!!!!!
+
+//let cityCoordinates: [String: (latitude: Double, longitude: Double)] = [
+//        "London": (51.52, -0.11),
+//        "Paris": (48.86, 2.34),
+//        "Berlin": (52.52, 13.40)
+//    ]
+
+
+//
+//let city = WeatherCity()
+//city.berlin
+
 //protocol showWeatherProtocol{
 //    func showWeather()
 //}
