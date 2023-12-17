@@ -22,8 +22,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
+        Task {
+            guard let coordinates = await locationService.currentLocation() else { return }
+            await updateWeather(coordinates: coordinates)
+        }
         
         
     }
@@ -36,13 +39,18 @@ class ViewController: UIViewController {
             guard let coordinades = await locationService.getLocation(name: city) else {
                 return
             }
-            guard let weather = await weatherService.weatherInLocation(location: coordinades) else {return}
-            let temperature = TemperatureLabel!
-            let location = LocationLabel!
-            temperature.text = "\(String(weather.temperature)) °C"
-            location.text = (String(weather.cityName))
-            print(searchTextField.text!)
+            await updateWeather(coordinates: coordinades)
+            
         }
+    }
+    
+    func updateWeather(coordinates: Coordinates) async {
+        guard let weather = await weatherService.weatherInLocation(location: coordinates) else {return}
+        let temperature = TemperatureLabel!
+        let location = LocationLabel!
+        temperature.text = "\(String(weather.temperature)) °C"
+        location.text = (String(weather.cityName))
+        print(searchTextField.text!)
     }
     
     
@@ -61,3 +69,9 @@ class ViewController: UIViewController {
 
 
 // заменить восклицательные знаки
+
+
+
+
+// заменить кортеж на Coordinates - Alias
+// переименовать getLocation - getCoordinates

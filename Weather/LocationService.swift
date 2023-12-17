@@ -7,6 +7,7 @@
 
 import Foundation
 
+typealias Coordinates = (latitude: Double, longitude: Double)
 
 protocol LocationServiceProtocol {
     
