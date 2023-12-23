@@ -75,3 +75,5 @@ class ViewController: UIViewController {
 
 // заменить кортеж на Coordinates - Alias
 // переименовать getLocation - getCoordinates
+
+
