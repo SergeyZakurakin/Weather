@@ -12,7 +12,6 @@ typealias Coordinates = (latitude: Double, longitude: Double)
 protocol LocationServiceProtocol {
     
     func currentLocation () async -> Coordinates?
-    
     func getLocation(name: String) async -> Coordinates?
     
 }
@@ -33,3 +32,5 @@ class LocationService: LocationServiceProtocol {
     
     
 }
+
+
