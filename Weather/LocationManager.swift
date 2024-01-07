@@ -41,9 +41,12 @@ struct LocationManager {
     func parseJson(locationData: Data){
         let decoder = JSONDecoder()
         do {
-           let decodedData = try decoder.decode(LocationData.self, from: locationData)
+//            let decodedDictionary = try decoder.decode(Dictionary<String, Decodable>.self, from: locationData)
+//            print(decodedDictionary)
+           let decodedData = try decoder.decode([LocationData].self, from: locationData)
             decoder.keyDecodingStrategy = .convertFromSnakeCase
-            print (decodedData.displayName)
+            print(decodedData)
+            
         } catch {
             print(error)
         }

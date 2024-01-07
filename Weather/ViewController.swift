@@ -72,9 +72,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
     
-    func textFieldShouldReturn(_ textField: UITextField) async -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if let city = textField.text {
-            await location.getLocation(cityName: city)
+            location.getLocation(cityName: city)
         }
         LocationLabel.text = textField.text
         textField.text = ""
@@ -94,23 +94,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 
 
-// поменять город (настроить город)
-// через словарь
-
-
-
-
-// сделать чтоб менялось название города
-
-// на старте чтоб приложение запрашивало текущую локацию, запрашивало на старте и искало текущую
-
-
-// заменить восклицательные знаки
-
-
-
-
-// заменить кортеж на Coordinates - Alias
-// переименовать getLocation - getCoordinates
+// 1. как сделать тест (проверить хотябы с консоли)?
+// 2. не могу передать данные в textfield
+// 3. URLComponents разобрался для чего, не написал так как хотел сначала сделать преведущее
+// 4. можно ли написать универсальный метод для получения URL и только подставлять в него URL (не совсем понял)
 
 

@@ -10,6 +10,15 @@ import Foundation
 
 struct LocationData: Codable {
     let displayName: String
-    let lat: Double
-    let lon: Double
+    let lat: String
+    let lon: String
+    
+    
+    enum CodingKeys: String, CodingKey {
+        case displayName = "display_name"
+        case lat = "lat"
+        case lon = "lon"
+    }
 }
+
+
