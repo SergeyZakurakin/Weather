@@ -15,7 +15,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     
 
-    let location = LocationManager()
+    let location : LocationManager
 
     
     
@@ -36,14 +36,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
             guard let coordinates = await locationService.currentLocation() else { return }
             await updateWeather(coordinates: coordinates)
         }
-        
-//        Task {
-//            do {
-//                location = try await NetworkCall.getLocation()
-//            } catch NetworkErrors.invalidURL {
-//                print("")
-//            }
-//        }
+
         
         
     }

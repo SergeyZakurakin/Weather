@@ -25,25 +25,10 @@ protocol WeatherServiceProtocol {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 class WeatherService: WeatherServiceProtocol {
     
     var cityname = "London"  // Указываем город для получения погоды
-    
-    
-  
-    
-    
+
     
     func correntLocationWeather() async -> Weather? {
         let url = URL(string: url)

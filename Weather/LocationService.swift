@@ -30,7 +30,6 @@ class LocationService: LocationServiceProtocol {
         return cityCoordinates[name]
     }
     
-    
 }
 
 
