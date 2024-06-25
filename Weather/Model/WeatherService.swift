@@ -14,37 +14,10 @@ protocol WeatherServiceProtocol {
     
 }
 
-
-//class RandomWeatherService: WeatherServiceProtocol {
-//    func correntLocationWeather() async -> Weather? {
-//        return Weather(temperature: Int.random(in: 0...30), cityName: "London", conditions: .rain)
-//    }
-
-
-//}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 class WeatherService: WeatherServiceProtocol {
     
     var cityname = "London"  // Указываем город для получения погоды
-    
-    
-  
-    
-    
-    
+
     func correntLocationWeather() async -> Weather? {
         let url = URL(string: url)
         // получение данных
@@ -55,8 +28,6 @@ class WeatherService: WeatherServiceProtocol {
     }
     
     func weatherInLocation(location: (latitude: Double, longitude: Double)) async -> Weather? {
-//        let urlString = "https://api.open-meteo.com/v1/forecast?latitude=\(location.latitude)&longitude=\(location.longitude)&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
-//        
         
         let urlString = "https://api.open-meteo.com/v1/forecast?latitude=\(location.latitude)&longitude=\(location.longitude)&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
         
@@ -67,18 +38,8 @@ class WeatherService: WeatherServiceProtocol {
         let weather = createWeather(data: data.0, response: nil, error: nil)
         return weather
     }
-    
-    
-    //    let city = ["London": "latitude=51.52&longitude=-0.11",
-    //                "Paris": "latitude=48.86&longitude=2.34",
-    //                "Berlin": "latitude=52.52&longitude=13.40"]
-    
-    
+
     let url = "https://api.open-meteo.com/v1/forecast?latitude=51.52&longitude=-0.11&current=temperature_2m,wind_speed_10m&hourly=temperature_2m,relative_humidity_2m,wind_speed_10m"
-    
-    
-    
-    
     
     private func createWeather(data: Data?, response: URLResponse?, error: Error?) -> Weather? {
         if error != nil {
